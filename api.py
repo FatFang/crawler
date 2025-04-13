@@ -17,6 +17,7 @@ def fetch_data():
     response.raise_for_status()
     return response.json()
 
+# 根據資料結構去擷取及整理需要的特定資料及欄位
 def parse_earthquake_data(data):
     earthquakes = data['records']['Earthquake']
     eq_list = []
