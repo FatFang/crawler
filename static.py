@@ -41,11 +41,6 @@ while True:
     res.encoding = 'utf-8'
     soup = BeautifulSoup(res.text, 'html.parser')
 
-    # not_found = soup.find('p', string=lambda text: text and '找不到您所查詢的' in text)
-
-    # if not_found:
-    #     break
-
     print(f'目前爬第 {current_page} 頁')
     table = soup.find('div', class_='table-searchbox clearfix')
     
@@ -53,18 +48,17 @@ while True:
         print('沒資料')
         break
 
-    #mod2 table-container
+    # 尋找每頁中table的每一行（書本資訊）
     rows = table.find_all('div',class_ = "mod2 table-container")
 
     all_data = []
     for r in rows:
-
+        # 儲存每一本書
         books = r.find('div',class_ = "table-tr").find_all('div',class_ = "table-td")
         for b in books:
+            # 儲存書的各種資料
             book_name = b.h4.a.text.strip()
-
             authors = b.find('div', class_='type clearfix').find('p',class_="author").find_all('a')
-
             if authors:
                 author_list = [a.text.strip() for a in authors]
                 author = ' '.join(author_list)
@@ -73,11 +67,7 @@ while True:
             # print(author)
             # sys.exit(0)
             price = b.ul.li.text.strip()
-            # print(price)
-            # sys.exit(0)
             bookid = b['id'].split('-')[-1] if b.has_attr('id') else ''
-            # print(bookid)
-            # sys.exit(0)
             src = b.find('img')['data-src'] if b.find('img') else ''
             if 'getImage?i=' in src:
                 img = src.split('getImage?i=')[-1].split('&')[0]
@@ -93,6 +83,7 @@ while True:
                 '封面圖片網址': img
             }
             all_data.append(data)
+            # 排名
             no += 1
 
     with open(filepath, mode='a', newline='', encoding='utf-8-sig') as f:
@@ -101,6 +92,8 @@ while True:
         print(f'寫入成功: 第 {current_page} 頁 共 {len(all_data)} 筆')
 
     # break
+    # 休息一段時間，以防被ban掉
     time.sleep(random.uniform(3,8))
+    # 頁數更改
     current_page += 1
 
