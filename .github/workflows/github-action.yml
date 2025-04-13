@@ -1,1 +1,35 @@
+name: Crawler Demo Action
+run-name: Crawler Demo Action
 
+# 觸發此 action 的時機
+on:
+  schedule:
+    - cron: "40 6 * * *"
+  workflow_dispatch:  # 可以手動執行此 action
+
+# 預先定義此 action 要幹嘛
+jobs:
+  crawler-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4.5.0
+        with:
+          python-version: "3.9.19"
+      - run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+      - name: Run Python File
+        run: |
+          python static.py
+          python api.py
+      - name: Commit Data To GitHub Repo 
+        run: |
+          git config --global user.name "crawler-bot"
+          git config --global user.email "gbossfamily2@gmail.com"
+          git add static.csv && git commit -m "Update static.json by bot" || echo "No changes to commit"
+          git add api1.csv && git commit -m "Update api1.csv by bot" || echo "No changes to commit"
+          git add api2.csv && git commit -m "Update api2.csv by bot" || echo "No changes to commit"
+          git push origin main
