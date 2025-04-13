@@ -4,7 +4,7 @@ run-name: Crawler Demo Action
 # 觸發此 action 的時機
 on:
   schedule:
-    - cron: "10 7 * * *"
+    - cron: "30 8 * * *"
   push:
     branchs:  # 只要有任何一個 commit 被 push，就會觸發此 action
       '*'
