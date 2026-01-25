@@ -1,4 +1,5 @@
 ﻿EarthquakeNo,ReportType,ReportColor,ReportContent,OriginTime,FocalDepth,EpicenterLatitude,EpicenterLongitude,EpicenterLocation,MagnitudeType,MagnitudeValue,Web
+115010,地震報告,綠色,01/24-22:26宜蘭縣近海發生規模4.3有感地震，最大震度花蓮縣和平、宜蘭縣南澳4級。,2026-01-24 22:26:24,16.7,24.36,121.8,宜蘭縣政府南方  40.9  公里 (位於宜蘭縣近海),芮氏規模,4.3,https://scweb.cwa.gov.tw/zh-tw/earthquake/details/2026010
 115009,地震報告,綠色,01/23-13:41宜蘭縣近海發生規模4.2有感地震，最大震度花蓮縣和平、宜蘭縣南澳3級。,2026-01-23 13:41:09,5.0,24.32,121.78,宜蘭縣政府南方  45.9  公里 (位於宜蘭縣近海),芮氏規模,4.2,https://scweb.cwa.gov.tw/zh-tw/earthquake/details/2026009
 115008,地震報告,綠色,01/19-07:48高雄市那瑪夏區發生規模4.3有感地震，最大震度高雄市桃源、嘉義縣阿里山、南投縣玉山3級。,2026-01-19 07:48:26,5.0,23.34,120.81,高雄市政府東北方  94.1  公里 (位於高雄市那瑪夏區),芮氏規模,4.3,https://scweb.cwa.gov.tw/zh-tw/earthquake/details/2026008
 115007,地震報告,綠色,01/18-16:47宜蘭縣近海發生規模4.9有感地震，最大震度花蓮縣和平、宜蘭縣南澳4級。,2026-01-18 16:47:46,5.9,24.32,121.81,宜蘭縣政府南方  45.4  公里 (位於宜蘭縣近海),芮氏規模,4.9,https://scweb.cwa.gov.tw/zh-tw/earthquake/details/2026007
